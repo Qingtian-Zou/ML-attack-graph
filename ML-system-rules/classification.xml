@@ -1,0 +1,49 @@
+<root name  = "text classification system">
+
+<relation name = "data and model poison">
+
+<pre>dataPoisoned: The [TrainingData] data is poisoned</pre>
+
+<pre>train: The [Embedding] model is trained with [TrainingData] data</pre>
+
+<post>modelPoisoned: The [Embedding] model is poisoned</post>
+
+</relation>
+
+<relation name = "embedding poison">
+
+<pre>modelPoisoned: The [Embedding] model is poisoned</pre>
+
+<pre>isEmbeddingModel: The [Embedding] model is an embedding model for language [Language]</pre>
+
+<post>embeddingPoisoned: The [Language] embedding model [Embedding] is poisoned</post>
+
+</relation>
+
+<relation name = "embedding affects translation">
+
+<pre>embeddingPoisoned: The [Language] embedding model [Embedding] is poisoned</pre>
+
+<pre>modelLanguage: The [Model] is based on the language [Language]</pre>
+
+<post>faultyModelOutput: The output of [Model] can be faulty because the embedding model [Embedding] for the language [Language] is poisoned</post>
+
+</relation>
+
+<relation name = "adversarial translation">
+
+<pre>adEx: Attacker can generate adversarial examples for [Object] towards [Model1] using [AdversarialPattern]</pre>
+
+<pre>wordEmbeddingTransform: Attacker can freely transform between embedding vector and word for [Language] based on [Model2]</pre>
+
+<pre>modelOutput: The [Model2] outputs [Model2Output]</pre>
+
+<pre>modelInput: The [Model1] takes the [RawData] as input</pre>
+
+<pre>dataCapture: The [Model2Output] is captured and processed into [RawData]</pre>
+
+<post>adversarialOutput: The output for input [Object] of [Model1] is faulty because of [AdversarialPattern]</post>
+
+</relation>
+
+</root>

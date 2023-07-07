@@ -1,0 +1,11 @@
+attackGoal(faultyTranslation(_,_)).
+
+attackerTaint(200, wikiWebPage).
+aboveThreshold(200).
+dataRead(wikiWebPage,crawler).
+dataWrite(crawler,wikiText).
+dataRead(wikiText,dataProcessor).
+dataWrite(dataProcessor,wikiTextCorpse).
+
+train(wikiTextCorpse,englishEmbedding).
+isEmbeddingModel(englishEmbedding,english).

@@ -1,0 +1,55 @@
+<root name  = "word-to-word translation system">
+
+<relation name = "data flow via program">
+
+<pre>dataRead: The [Data1] is read by [Program]</pre>
+
+<pre>dataWrite: The [Program] writes to [Data2]</pre>
+
+<post>dataFlow: There exists a data flow between [Data1] and [Data2]</post>
+
+</relation>
+
+<relation name = "data flow">
+
+<pre>dataFlow: There exists a data flow between [Data1] and [Data2]</pre>
+
+<pre>dataFlow: There exists a data flow between [Data2] and [Data3]</pre>
+
+<post>dataFlow: There exists a data flow between [Data1] and [Data3]</post>
+
+</relation>
+
+<relation name = "embedding poison">
+
+<pre>modelPoisoned: The [Embedding] model is poisoned</pre>
+
+<pre>isEmbeddingModel: The [Embedding] model is an embedding model for language [Language]</pre>
+
+<post>embeddingPoisoned: The [Language] embedding model [Embedding] is poisoned</post>
+
+</relation>
+
+<relation name = "embedding affects translation">
+
+<pre>embeddingPoisoned: The [Language] embedding model [Embedding] is poisoned</pre>
+
+<post>faultyTranslation: Translations involving [Language] can be faulty because the corresponding embedding model [Embedding] poisoned</post>
+
+</relation>
+
+<relation name = "adversarial translation">
+
+<pre>adversarialGeneration: Attacker use [AdversarialPattern] for adversarial example generation against [AlignmentModel]</pre>
+
+<pre>wordEmbeddingTransform: Attacker can freely transform between embedding vector and word for [Language1]</pre>
+
+<pre>wordLanguage: [Word] is in [Language1]</pre>
+
+<pre>languageAlign: Translation between [Language1] and [Language2] is done with aligning embeddings with [AlignmentModel]</pre>
+
+<post>adversarialTranslation: The translation from [Language1] to [Language2] for input [Word] can be faulty because of [AdversarialPattern]</post>
+
+</relation>
+
+</root>

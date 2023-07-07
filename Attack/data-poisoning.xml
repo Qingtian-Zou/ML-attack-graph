@@ -1,0 +1,33 @@
+<root name = "data posioning">
+
+<relation name = "attacker taints raw data">
+
+<pre>attackerTaint: The attacker taints [Number] records of [RawData] data</pre>
+
+<pre>aboveThreshold: [Number] is above the threshold</pre>
+
+<post>rawDataTainted: The [RawData] data is tainted</post>
+
+</relation>
+
+<relation name = "poison training data">
+
+<pre>dataFlow: There exists a data flow between [RawData] and [TrainingData]</pre>
+
+<pre>rawDataTainted: The [RawData] data is tainted</pre>
+
+<post>trainingDataPoisoned: The [TrainingData] data is poisoned</post>
+
+</relation>
+
+<relation name = "data poison results to model poisoned">
+
+<pre>trainingDataPoisoned: The [TrainingData] data is poisoned</pre>
+
+<pre>train: The [TrainingData] is used for the training of [Model]</pre>
+
+<post>modelPoisoned: The [Model] is poisoned</post>
+
+</relation>
+
+</root>

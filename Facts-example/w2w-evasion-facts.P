@@ -1,0 +1,8 @@
+attackGoal(adversarialTranslation(_,_,_,_)).
+
+whiteBox(alignmentModel).
+adversarialGeneration(fgsm).
+whiteBox(englishEmbedding).
+isEmbeddingModel(englishEmbedding,english).
+wordLanguage(sentence,english).
+languageAlign(english,spanish,alignmentModel).

@@ -1,0 +1,31 @@
+<root name = "evasion on embedding space">
+
+<relation name = "white-box">
+
+<pre>whiteBox: [Model1] is white-box to the attacker</pre>
+
+<post>computeGradient: Attacker can calculate gradient of [Model1]</post>
+
+</relation>
+
+<relation name = "adversarial generation towards a model">
+
+<pre>computeGradient: Attacker can calculate gradient of [Model1]</pre>
+
+<pre>adversarialGeneration: Attacker use [AdversarialPattern] for adversarial example generation</pre>
+
+<post>adversarialGeneration: Attacker use [AdversarialPattern] for adversarial example generation against [Model1]</post>
+
+</relation>
+
+<relation name = "embdedding-sentence transform">
+
+<pre>whiteBox: [Model2] is white-box to the attacker</pre>
+
+<pre>isEmbeddingModel: The [Model2] model is an embedding model for [Language]</pre>
+
+<post>wordEmbeddingTransform: Attacker can freely transform between embedding vector and word for [Language]</post>
+
+</relation>
+
+</root>
